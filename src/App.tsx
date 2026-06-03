@@ -1,3 +1,7 @@
+import { faGithub, faKeybase, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faBookAtlas, faBrain, faCheckCircle, faCoffee, faDesktop, faDollar, faFileShield, faLock, faNoteSticky, faToolbox } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 export default function App() {
   return (
     <div className="min-h-screen bg-slate-950 text-white">
@@ -8,8 +12,11 @@ export default function App() {
               SolveDesk <span className="text-cyan-400">AI</span>
             </div>
 
-            <button className="rounded-xl bg-white px-6 py-3 font-semibold text-slate-950 transition hover:opacity-90">
-              Dokumentacja
+            <button
+              disabled
+              className="cursor-not-allowed rounded-xl border border-slate-700 bg-slate-800 px-6 py-3 font-semibold text-slate-400 opacity-70"
+            >
+              Dokumentacja (w opracowaniu)
             </button>
           </nav>
 
@@ -36,14 +43,20 @@ export default function App() {
                 Retrieval-Augmented Generation.
               </p>
 
-              <div className="mt-10 flex flex-wrap justify-center gap-4">
-                <button className="rounded-xl bg-cyan-400 px-6 py-4 font-semibold text-slate-950 transition hover:bg-cyan-300">
-                  Rozpocznij
-                </button>
+              <div className="mt-10 flex flex-col items-center gap-4">
+                <a
+                  href="https://github.com/studiocyfrowe/solvedesk-ai"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="rounded-xl bg-cyan-400 px-5 py-3 flex flex-row space-x-3 items-center font-semibold text-slate-950 transition hover:bg-cyan-300"
+                >
+                  <FontAwesomeIcon icon={faGithub} />
+                  <span>Pobierz repozytorium</span>
+                </a>
 
-                <button className="rounded-xl border border-slate-600 px-6 py-4 font-semibold text-slate-100 transition hover:border-slate-400">
-                  Zobacz CLI
-                </button>
+                <span className="text-sm text-slate-500 animate-pulse">
+                  ↓ Przewiń dalej, aby poznać możliwości SolveDesk AI
+                </span>
               </div>
 
               <div className="mx-auto mt-16 max-w-4xl rounded-3xl border border-slate-800 bg-slate-900 p-8 text-left shadow-2xl">
@@ -93,7 +106,7 @@ $ solvedesk llm init
           <div className="grid gap-6 md:grid-cols-3">
             <div className="rounded-3xl border border-slate-800 bg-slate-900 p-8 transition hover:-translate-y-1 hover:border-cyan-500">
               <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-400">
-                🌐
+                <FontAwesomeIcon icon={faNoteSticky} />
               </div>
 
               <h3 className="mb-2 text-2xl font-bold">WordPress</h3>
@@ -111,7 +124,7 @@ $ solvedesk llm init
 
             <div className="rounded-3xl border border-slate-800 bg-slate-900 p-8 transition hover:-translate-y-1 hover:border-cyan-500">
               <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-400">
-                ⚙️
+                <FontAwesomeIcon icon={faToolbox} />
               </div>
 
               <h3 className="mb-2 text-2xl font-bold">Laravel</h3>
@@ -127,18 +140,18 @@ $ solvedesk llm init
               </p>
             </div>
 
-            <div className="rounded-3xl border border-cyan-500 bg-slate-900 p-8 shadow-lg shadow-cyan-500/10">
-              <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-400">
-                🧠
+            <div className="rounded-3xl border border-cyan-500 bg-cyan-400 p-8 shadow-lg shadow-cyan-500/10">
+              <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-slate-500/10 text-slate-950">
+                <FontAwesomeIcon icon={faBrain} />
               </div>
 
-              <h3 className="mb-2 text-2xl font-bold">SolveDesk AI</h3>
+              <h3 className="mb-2 text-2xl font-bold text-slate-950">SolveDesk AI</h3>
 
-              <p className="mb-4 font-medium text-cyan-400">
+              <p className="mb-4 font-medium text-slate-950">
                 Framework dla inteligentnych baz wiedzy
               </p>
 
-              <p className="text-slate-400">
+              <p className="text-slate-950">
                 Gotowe narzędzia do importu danych, generowania embeddingów,
                 baz wektorowych, wyszukiwania semantycznego, RAG, analizy
                 jakości danych oraz integracji z lokalnymi modelami LLM.
@@ -298,10 +311,6 @@ $ solvedesk llm init
                   "Wyszukiwanie informacji o benefitach, urlopach, onboardingach oraz procesach kadrowych."
                 ],
                 [
-                  "Administracja publiczna",
-                  "Przeszukiwanie uchwał, zarządzeń, dokumentów i instrukcji urzędowych."
-                ],
-                [
                   "Dokumentacja techniczna",
                   "Odnajdywanie fragmentów instrukcji, specyfikacji i dokumentacji produktowej."
                 ],
@@ -316,14 +325,18 @@ $ solvedesk llm init
                 [
                   "Zarządzanie wiedzą",
                   "Centralizacja wiedzy pochodzącej z wielu systemów, plików i źródeł danych."
-                ]
+                ],
+                [
+                  "Integracja WWW",
+                  "Połącz AI z własną stroną internetową, panelem klienta lub systemem firmowym. Użytkownicy mogą zadawać pytania bezpośrednio z aplikacji, a model korzysta z lokalnej bazy wiedzy, dokumentacji i danych biznesowych."
+                ],
               ].map(([title, desc]) => (
                 <div
                   key={title}
                   className="rounded-3xl border border-slate-800 bg-slate-900 p-8 transition hover:-translate-y-1 hover:border-cyan-500"
                 >
                   <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-400">
-                    💼
+                    <FontAwesomeIcon icon={faDesktop} />
                   </div>
 
                   <h3 className="mb-3 text-xl font-bold">
@@ -344,28 +357,36 @@ $ solvedesk llm init
 
               <div className="grid gap-6 md:grid-cols-4">
                 <div>
-                  <div className="mb-2 text-3xl font-bold text-cyan-400">⚡</div>
+                  <div className="mb-2 text-3xl font-bold text-cyan-400">
+                    <FontAwesomeIcon icon={faBookAtlas} />
+                  </div>
                   <p className="text-slate-300">
                     Szybszy dostęp do wiedzy
                   </p>
                 </div>
 
                 <div>
-                  <div className="mb-2 text-3xl font-bold text-cyan-400">🎯</div>
+                  <div className="mb-2 text-3xl font-bold text-cyan-400">
+                    <FontAwesomeIcon icon={faCheckCircle} />
+                  </div>
                   <p className="text-slate-300">
                     Trafniejsze odpowiedzi
                   </p>
                 </div>
 
                 <div>
-                  <div className="mb-2 text-3xl font-bold text-cyan-400">🔒</div>
+                  <div className="mb-2 text-3xl font-bold text-cyan-400">
+                    <FontAwesomeIcon icon={faFileShield} />
+                  </div>
                   <p className="text-slate-300">
                     Dane pozostają lokalnie
                   </p>
                 </div>
 
                 <div>
-                  <div className="mb-2 text-3xl font-bold text-cyan-400">📈</div>
+                  <div className="mb-2 text-3xl font-bold text-cyan-400">
+                    <FontAwesomeIcon icon={faDollar} />
+                  </div>
                   <p className="text-slate-300">
                     Niższe koszty wsparcia
                   </p>
@@ -377,10 +398,12 @@ $ solvedesk llm init
 
         <section className="py-16">
           <div className="mx-auto max-w-4xl rounded-3xl border border-slate-800 bg-slate-900 p-12 text-center">
-            <div className="mb-4 text-5xl">☕</div>
+            <div className="mb-4 text-5xl">
+              <FontAwesomeIcon icon={faCoffee} />
+            </div>
 
             <h2 className="mb-4 text-4xl font-bold">
-              Kodowanie bez dobrej kawy <br/>to jak RAG bez embeddingów
+              Kodowanie bez dobrej kawy <br />to jak RAG bez embeddingów
             </h2>
 
             <p className="mx-auto mb-8 max-w-2xl text-lg text-slate-400">
@@ -400,8 +423,26 @@ $ solvedesk llm init
           </div>
         </section>
 
-        <footer className="border-t border-slate-800 py-8 text-center text-slate-500 text-sm">
-          © 2026 SolveDesk AI. Local knowledge base framework. made by studiocyfrowe / dominik hofman
+        <footer className="border-t border-slate-800 py-8">
+          <div className="container mx-auto flex flex-col items-center gap-4 text-center text-sm text-slate-500">
+            <p>
+              License MIT
+               <br />
+              © 2026 SolveDesk AI. Local knowledge base framework.
+              <br />
+              Made by studiocyfrowe / Dominik Hofman
+            </p>
+
+            <a
+              href="https://www.linkedin.com/in/hofmandesign/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 transition hover:text-cyan-400"
+              aria-label="LinkedIn"
+            >
+              <FontAwesomeIcon icon={faLinkedin} size="2x" />
+            </a>
+          </div>
         </footer>
       </div>
     </div>
