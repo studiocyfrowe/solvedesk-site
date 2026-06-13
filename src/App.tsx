@@ -1,93 +1,19 @@
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faBookAtlas, faBrain, faCheckCircle, faCoffee, faDesktop, faDollar, faFileShield, faNoteSticky, faToolbox } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { aboutRag } from "./data/aboutRag";
+import { usage } from "./data/usage";
+import { destiny } from "./data/destiny";
+import Navbar from "./components/Navbar";
+import HeaderSection from "./components/HeaderSection";
 
 export default function App() {
   return (
     <div className="min-h-screen bg-slate-950 text-white">
       <div className="mx-auto max-w-7xl px-6">
         <header>
-          <nav className="flex items-center justify-between py-8">
-            <div className="text-2xl font-bold">
-              SolveDesk <span className="text-cyan-400">AI</span>
-            </div>
-
-            <button
-              disabled
-              className="cursor-not-allowed rounded-xl border border-slate-700 bg-slate-800 px-6 py-3 font-semibold text-slate-400 opacity-70"
-            >
-              Dokumentacja (w opracowaniu)
-            </button>
-          </nav>
-
-          <section className="relative overflow-hidden rounded-[32px] border border-slate-700">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_10%_5%,rgba(220,235,205,0.9),transparent_35%),radial-gradient(circle_at_90%_10%,rgba(190,80,220,0.9),transparent_35%),radial-gradient(circle_at_25%_75%,rgba(0,120,135,0.55),transparent_45%),linear-gradient(135deg,#51636a_0%,#263f65_35%,#16214e_65%,#070a1c_100%)]" />
-
-            <div className="absolute inset-0 backdrop-blur-xl bg-slate-950/20" />
-
-            <div className="relative z-10 mx-auto max-w-5xl px-6 py-24 text-center">
-              <span className="inline-block rounded-full border border-cyan-400/30 px-4 py-2 text-sm text-cyan-300">
-                Framework RAG dla lokalnych baz wiedzy
-              </span>
-
-              <h1 className="mt-6 text-5xl font-bold leading-tight md:text-7xl">
-                Zbuduj własną
-                <br />
-                inteligentną bazę wiedzy
-              </h1>
-
-              <p className="mx-auto mt-8 max-w-3xl text-lg text-slate-200 md:text-xl">
-                SolveDesk AI pozwala importować własne dane, generować
-                embeddingi, przechowywać je w bazie wektorowej i wyszukiwać
-                odpowiedzi z użyciem architektury
-                Retrieval-Augmented Generation.
-              </p>
-
-              <div className="mt-10 flex flex-col items-center gap-4">
-                <a
-                  href="https://github.com/studiocyfrowe/solvedesk-ai"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-xl bg-cyan-400 px-5 py-3 flex flex-row space-x-3 items-center font-semibold text-slate-950 transition hover:bg-cyan-300"
-                >
-                  <FontAwesomeIcon icon={faGithub} />
-                  <span>Pobierz repozytorium</span>
-                </a>
-
-                <span className="text-sm text-slate-500 animate-pulse">
-                  ↓ Przewiń dalej, aby poznać możliwości SolveDesk AI
-                </span>
-              </div>
-
-              <div className="mx-auto mt-16 max-w-4xl rounded-3xl border border-slate-800 bg-slate-900 p-8 text-left shadow-2xl">
-                <div className="mb-6 flex gap-2">
-                  <span className="h-3 w-3 rounded-full bg-red-400" />
-                  <span className="h-3 w-3 rounded-full bg-yellow-400" />
-                  <span className="h-3 w-3 rounded-full bg-green-400" />
-                </div>
-
-                <pre className="overflow-x-auto text-sm text-slate-300">
-                  {`$ solvedesk conf init my-project
-
-$ solvedesk db init
-✔ model downloaded
-✔ vector database created
-
-$ solvedesk sync file data.xlsx
-✔ documents imported
-
-$ solvedesk run:app
-✔ API running on localhost:8000
-
-$ solvedesk data revision
-✔ Embeddings quality report generated
-
-$ solvedesk llm init
-✔ Ollama connection configured`}
-                </pre>
-              </div>
-            </div>
-          </section>
+          <Navbar />
+          <HeaderSection />
         </header>
 
         <section className="border-t border-slate-800 py-28">
@@ -160,39 +86,7 @@ $ solvedesk llm init
           </div>
         </section>
 
-        <section className="border-t border-slate-800 py-28">
-          <h2 className="mb-14 text-center text-4xl font-bold">
-            Wszystko, czego potrzebujesz do RAG
-          </h2>
-
-          <div className="grid gap-6 md:grid-cols-3">
-            {[
-              ["Import danych", "CSV, JSON, XLSX oraz API."],
-              ["Embeddingi", "Tworzenie reprezentacji wektorowych tekstu."],
-              ["Vector Search", "Wyszukiwanie semantyczne dokumentów."],
-              [
-                "CLI",
-                "Konfiguruj projekt, bazę, modele i synchronizację z poziomu terminala."
-              ],
-              [
-                "Lokalne modele",
-                "Korzystaj z lokalnych modeli embeddingowych i LLM przez Ollama."
-              ],
-              [
-                "Analiza jakości",
-                "Sprawdzaj klastry, cosine similarity, tokeny i PCA."
-              ]
-            ].map(([title, desc]) => (
-              <div
-                key={title}
-                className="rounded-3xl border border-slate-800 bg-slate-900 p-8 transition hover:-translate-y-1 hover:border-cyan-500"
-              >
-                <h3 className="mb-3 text-xl font-bold">{title}</h3>
-                <p className="text-slate-400">{desc}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+        
 
         <section className="border-t border-slate-800 py-28">
           <div className="mx-auto max-w-7xl">
@@ -207,44 +101,7 @@ $ solvedesk llm init
             </p>
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {[
-                [
-                  "CLI",
-                  "Zestaw komend do konfiguracji projektu, bazy wektorowej, modeli, importu danych i uruchamiania API."
-                ],
-                [
-                  "Importer danych",
-                  "Mechanizm wczytywania danych z plików CSV, JSON, XLSX oraz zewnętrznych źródeł API."
-                ],
-                [
-                  "Model embeddingowy",
-                  "Warstwa zamieniająca tekst na wektory, dzięki którym możliwe jest wyszukiwanie semantyczne."
-                ],
-                [
-                  "Baza wektorowa",
-                  "Lokalne repozytorium embeddingów i metadanych, wykorzystywane do odnajdywania podobnych dokumentów."
-                ],
-                [
-                  "RAG Engine",
-                  "Mechanizm pobierający najtrafniejsze dokumenty i przekazujący je jako kontekst do modelu językowego."
-                ],
-                [
-                  "API",
-                  "Warstwa aplikacyjna umożliwiająca integrację SolveDesk AI z własnym frontendem lub innymi systemami."
-                ],
-                [
-                  "LLM Connector",
-                  "Połączenie z lokalnym modelem językowym, na przykład przez Ollama."
-                ],
-                [
-                  "Data Revision",
-                  "Narzędzia do analizy jakości danych, klastrów, tokenów, embeddingów i wizualizacji PCA."
-                ],
-                [
-                  "Konfiguracja projektu",
-                  "Plik środowiskowy i ustawienia określające nazwę projektu, model, kolekcję oraz lokalizację bazy."
-                ]
-              ].map(([title, desc]) => (
+              {usage.map(([title, desc]) => (
                 <div
                   key={title}
                   className="rounded-3xl border border-slate-800 bg-slate-900 p-8 transition hover:-translate-y-1 hover:border-cyan-500"
@@ -293,44 +150,7 @@ $ solvedesk llm init
             </p>
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {[
-                [
-                  "Helpdesk IT",
-                  "Automatyczne wyszukiwanie rozwiązań zgłoszeń, instrukcji i procedur serwisowych."
-                ],
-                [
-                  "Obsługa klienta",
-                  "Chatbot odpowiadający na pytania klientów na podstawie regulaminów, FAQ i dokumentacji."
-                ],
-                [
-                  "Baza wiedzy pracowników",
-                  "Szybki dostęp do procedur, polityk firmowych i dokumentów wewnętrznych."
-                ],
-                [
-                  "Dział HR",
-                  "Wyszukiwanie informacji o benefitach, urlopach, onboardingach oraz procesach kadrowych."
-                ],
-                [
-                  "Dokumentacja techniczna",
-                  "Odnajdywanie fragmentów instrukcji, specyfikacji i dokumentacji produktowej."
-                ],
-                [
-                  "Compliance i audyty",
-                  "Weryfikacja procedur oraz szybkie odnajdywanie wymaganych dokumentów."
-                ],
-                [
-                  "Działy prawne",
-                  "Analiza umów, regulaminów i aktów prawnych z wykorzystaniem wyszukiwania semantycznego."
-                ],
-                [
-                  "Zarządzanie wiedzą",
-                  "Centralizacja wiedzy pochodzącej z wielu systemów, plików i źródeł danych."
-                ],
-                [
-                  "Integracja WWW",
-                  "Połącz AI z własną stroną internetową, panelem klienta lub systemem firmowym. Użytkownicy mogą zadawać pytania bezpośrednio z aplikacji, a model korzysta z lokalnej bazy wiedzy, dokumentacji i danych biznesowych."
-                ],
-              ].map(([title, desc]) => (
+              {destiny.map(([title, desc]) => (
                 <div
                   key={title}
                   className="rounded-3xl border border-slate-800 bg-slate-900 p-8 transition hover:-translate-y-1 hover:border-cyan-500"
@@ -427,7 +247,7 @@ $ solvedesk llm init
           <div className="container mx-auto flex flex-col items-center gap-4 text-center text-sm text-slate-500">
             <p>
               License MIT
-               <br />
+              <br />
               © 2026 SolveDesk AI. Local knowledge base framework.
               <br />
               Made by studiocyfrowe / Dominik Hofman
