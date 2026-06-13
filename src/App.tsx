@@ -1,7 +1,6 @@
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faBookAtlas, faBrain, faCheckCircle, faCoffee, faDesktop, faDollar, faFileShield, faNoteSticky, faToolbox } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { aboutRag } from "./data/aboutRag";
 import { usage } from "./data/usage";
 import { destiny } from "./data/destiny";
 import Navbar from "./components/Navbar";
