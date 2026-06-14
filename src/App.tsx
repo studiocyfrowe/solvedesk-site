@@ -5,8 +5,11 @@ import { usage } from "./data/usage";
 import { destiny } from "./data/destiny";
 import Navbar from "./components/Navbar";
 import HeaderSection from "./components/HeaderSection";
+import { useState } from "react";
 
 export default function App() {
+  const [showCookies, setShowCookies] = useState(true)
+
   return (
     <div className="min-h-screen bg-slate-950 text-white">
       <div className="mx-auto max-w-7xl px-6">
@@ -85,7 +88,7 @@ export default function App() {
           </div>
         </section>
 
-        
+
 
         <section className="border-t border-slate-800 py-28">
           <div className="mx-auto max-w-7xl">
@@ -263,6 +266,28 @@ export default function App() {
             </a>
           </div>
         </footer>
+        {showCookies && (
+          <div className="fixed inset-0 z-50 flex items-end justify-center bg-slate-950/70 px-4 py-6 backdrop-blur-sm md:items-center">
+            <div className="max-w-xl rounded-3xl border border-slate-800 bg-slate-900 p-8 shadow-2xl">
+              <h2 className="mb-3 text-2xl font-bold text-white">
+                Informacja o cookies
+              </h2>
+
+              <p className="mb-6 text-slate-400">
+                Ta strona może wykorzystywać pliki cookies w celu poprawnego działania,
+                analizy ruchu oraz ulepszania doświadczenia użytkownika. Korzystając ze
+                strony, możesz zaakceptować ich użycie.
+              </p>
+
+              <button
+                onClick={() => setShowCookies(false)}
+                className="w-full rounded-xl bg-cyan-400 px-6 py-4 font-semibold text-slate-950 transition hover:bg-cyan-300"
+              >
+                Akceptuję
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
