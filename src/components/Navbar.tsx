@@ -17,7 +17,7 @@ const Navbar = () => {
                     </span>
 
                     <span className="text-sm font-medium text-green-400">
-                        v0.4.1 Beta
+                        v0.6.3 Beta
                     </span>
                 </div>
                 {/* <button
